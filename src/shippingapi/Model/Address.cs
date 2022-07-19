@@ -138,7 +138,7 @@ namespace shippingapi.Model
             // to ensure "countryCode" is required (not null)
             if (countryCode == null)
             {
-                throw new InvalidDataException("countryCode is a required property for Address and cannot be null");
+                this.CountryCode = "US";
             }
             else
             {
