@@ -25,10 +25,10 @@ using OpenAPIDateConverter = shippingapi.Client.OpenAPIDateConverter;
 namespace shippingapi.Model
 {
     /// <summary>
-    /// The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | FCM - First-Class Mail | PRCLSEL - Parcel Select | STDPOST - Standard Post | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)
+    /// The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | UGA - Ground Advantage Service | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)
     /// </summary>
-    /// <value>The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | FCM - First-Class Mail | PRCLSEL - Parcel Select | STDPOST - Standard Post | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)</value>
-    
+    /// <value>The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | UGA -  UGA - Ground Advantage Service | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)</value>
+
     [JsonConverter(typeof(StringEnumConverter))]
     
     public enum Services
@@ -46,238 +46,226 @@ namespace shippingapi.Model
         PM = 2,
 
         /// <summary>
-        /// Enum FCM for value: FCM
+        /// Enum UGA for value: UGA
         /// </summary>
-        [EnumMember(Value = "FCM")]
-        FCM = 3,
-
-        /// <summary>
-        /// Enum PRCLSEL for value: PRCLSEL
-        /// </summary>
-        [EnumMember(Value = "PRCLSEL")]
-        PRCLSEL = 4,
-
-        /// <summary>
-        /// Enum STDPOST for value: STDPOST
-        /// </summary>
-        [EnumMember(Value = "STDPOST")]
-        STDPOST = 5,
+        [EnumMember(Value = "UGA")]
+        UGA = 3,
 
         /// <summary>
         /// Enum LIB for value: LIB
         /// </summary>
         [EnumMember(Value = "LIB")]
-        LIB = 6,
+        LIB = 4,
 
         /// <summary>
         /// Enum MEDIA for value: MEDIA
         /// </summary>
         [EnumMember(Value = "MEDIA")]
-        MEDIA = 7,
+        MEDIA = 5,
 
         /// <summary>
         /// Enum PMOD for value: PMOD
         /// </summary>
         [EnumMember(Value = "PMOD")]
-        PMOD = 8,
+        PMOD = 6,
 
         /// <summary>
         /// Enum EMI for value: EMI
         /// </summary>
         [EnumMember(Value = "EMI")]
-        EMI = 9,
+        EMI = 7,
 
         /// <summary>
         /// Enum PMI for value: PMI
         /// </summary>
         [EnumMember(Value = "PMI")]
-        PMI = 10,
+        PMI = 8,
 
         /// <summary>
         /// Enum FCMI for value: FCMI
         /// </summary>
         [EnumMember(Value = "FCMI")]
-        FCMI = 11,
+        FCMI = 9,
 
         /// <summary>
         /// Enum FCPIS for value: FCPIS
         /// </summary>
         [EnumMember(Value = "FCPIS")]
-        FCPIS = 12,
+        FCPIS = 10,
 
         /// <summary>
         /// Enum BPM for value: BPM
         /// </summary>
         [EnumMember(Value = "BPM")]
-        BPM = 13,
+        BPM = 11,
 
         /// <summary>
         /// Enum PSLW for value: PSLW
         /// </summary>
         [EnumMember(Value = "PSLW")]
-        PSLW = 14,
+        PSLW = 12,
 
         /// <summary>
         /// Enum STANDARD for value: STANDARD
         /// </summary>
         [EnumMember(Value = "STANDARD")]
-        STANDARD = 15,
+        STANDARD = 13,
 
         /// <summary>
         /// Enum PBXPS for value: PBXPS
         /// </summary>
         [EnumMember(Value = "PBXPS")]
-        PBXPS = 16,
+        PBXPS = 14,
 
         /// <summary>
         /// Enum PBXUS for value: PBXUS
         /// </summary>
         [EnumMember(Value = "PBXUS")]
-        PBXUS = 17,
+        PBXUS = 15,
 
         /// <summary>
         /// Enum PBXPE for value: PBXPE
         /// </summary>
         [EnumMember(Value = "PBXPE")]
-        PBXPE = 18,
+        PBXPE = 16,
 
         /// <summary>
         /// Enum NDAAM for value: NDA_AM
         /// </summary>
         [EnumMember(Value = "NDA_AM")]
-        NDAAM = 19,
+        NDAAM = 17,
 
         /// <summary>
         /// Enum NDA for value: NDA
         /// </summary>
         [EnumMember(Value = "NDA")]
-        NDA = 20,
+        NDA = 18,
 
         /// <summary>
         /// Enum NDASVR for value: NDA_SVR
         /// </summary>
         [EnumMember(Value = "NDA_SVR")]
-        NDASVR = 21,
+        NDASVR = 19,
 
         /// <summary>
         /// Enum _2DAAM for value: 2DA_AM
         /// </summary>
         [EnumMember(Value = "2DA_AM")]
-        _2DAAM = 22,
+        _2DAAM = 20,
 
         /// <summary>
         /// Enum _2DA for value: 2DA
         /// </summary>
         [EnumMember(Value = "2DA")]
-        _2DA = 23,
+        _2DA = 21,
 
         /// <summary>
         /// Enum _3DA for value: 3DA
         /// </summary>
         [EnumMember(Value = "3DA")]
-        _3DA = 24,
+        _3DA = 22,
 
         /// <summary>
         /// Enum GRD for value: GRD
         /// </summary>
         [EnumMember(Value = "GRD")]
-        GRD = 25,
+        GRD = 23,
 
         /// <summary>
         /// Enum HOM for value: HOM
         /// </summary>
         [EnumMember(Value = "HOM")]
-        HOM = 26,
+        HOM = 24,
 
         /// <summary>
         /// Enum NDAAMFREIGHT for value: NDA_AM_FREIGHT
         /// </summary>
         [EnumMember(Value = "NDA_AM_FREIGHT")]
-        NDAAMFREIGHT = 27,
+        NDAAMFREIGHT = 25,
 
         /// <summary>
         /// Enum NDAFREIGHT for value: NDA_FREIGHT
         /// </summary>
         [EnumMember(Value = "NDA_FREIGHT")]
-        NDAFREIGHT = 28,
+        NDAFREIGHT = 26,
 
         /// <summary>
         /// Enum _2DAFREIGHT for value: 2DA_FREIGHT
         /// </summary>
         [EnumMember(Value = "2DA_FREIGHT")]
-        _2DAFREIGHT = 29,
+        _2DAFREIGHT = 27,
 
         /// <summary>
         /// Enum _3DAFREIGHT for value: 3DA_FREIGHT
         /// </summary>
         [EnumMember(Value = "3DA_FREIGHT")]
-        _3DAFREIGHT = 30,
+        _3DAFREIGHT = 28,
 
         /// <summary>
         /// Enum SPPRESTD for value: SP_PRE_STD
         /// </summary>
         [EnumMember(Value = "SP_PRE_STD")]
-        SPPRESTD = 31,
+        SPPRESTD = 29,
 
         /// <summary>
         /// Enum SPPRCLSEL for value: SP_PRCLSEL
         /// </summary>
         [EnumMember(Value = "SP_PRCLSEL")]
-        SPPRCLSEL = 32,
+        SPPRCLSEL = 30,
 
         /// <summary>
         /// Enum SPMEDIA for value: SP_MEDIA
         /// </summary>
         [EnumMember(Value = "SP_MEDIA")]
-        SPMEDIA = 33,
+        SPMEDIA = 31,
 
         /// <summary>
         /// Enum SPPREPRINT for value: SP_PRE_PRINT
         /// </summary>
         [EnumMember(Value = "SP_PRE_PRINT")]
-        SPPREPRINT = 34,
+        SPPREPRINT = 32,
 
         /// <summary>
         /// Enum XPP for value: XPP
         /// </summary>
         [EnumMember(Value = "XPP")]
-        XPP = 35,
+        XPP = 33,
 
         /// <summary>
         /// Enum EXP for value: EXP
         /// </summary>
         [EnumMember(Value = "EXP")]
-        EXP = 36,
+        EXP = 34,
 
         /// <summary>
         /// Enum XPD for value: XPD
         /// </summary>
         [EnumMember(Value = "XPD")]
-        XPD = 37,
+        XPD = 35,
 
         /// <summary>
         /// Enum STD for value: STD
         /// </summary>
         [EnumMember(Value = "STD")]
-        STD = 38,
+        STD = 36,
 
         /// <summary>
         /// Enum EXS for value: EXS
         /// </summary>
         [EnumMember(Value = "EXS")]
-        EXS = 39,
+        EXS = 37,
 
         /// <summary>
         /// Enum EXPFREIGHT for value: EXP_FREIGHT
         /// </summary>
         [EnumMember(Value = "EXP_FREIGHT")]
-        EXPFREIGHT = 40,
+        EXPFREIGHT = 38,
 
         /// <summary>
         /// Enum XPDFREIGHT for value: XPD_FREIGHT
         /// </summary>
         [EnumMember(Value = "XPD_FREIGHT")]
-        XPDFREIGHT = 41
+        XPDFREIGHT = 39
 
     }
 
