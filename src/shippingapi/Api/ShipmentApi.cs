@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using shippingapi.Client;
 using shippingapi.Model;
@@ -71,7 +72,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Shipment</returns>
-        Shipment CreateShipmentLabel (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string));
+        Shipment CreateShipmentLabel (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string));
 
         /// <summary>
         /// This operation creates a shipment and purchases a shipment label.
@@ -89,7 +90,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string));
+        ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string));
         /// <summary>
         /// reprintShipment
         /// </summary>
@@ -563,9 +564,9 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Shipment</returns>
-        public Shipment CreateShipmentLabel (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
+        public Shipment CreateShipmentLabel (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
         {
-             ApiResponse<Shipment> localVarResponse = CreateShipmentLabelWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment);
+             ApiResponse<Shipment> localVarResponse = CreateShipmentLabelWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment, carrier);
              return localVarResponse.Data;
         }
 
@@ -582,7 +583,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        public ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
+        public ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
         {
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
@@ -613,6 +614,7 @@ namespace shippingapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (carrier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "carrier", carrier)); // query parameter
             if (includeDeliveryCommitment != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDeliveryCommitment", includeDeliveryCommitment)); // query parameter
             if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
             if (xPBTransactionId != null) localVarHeaderParams.Add("X-PB-TransactionId", this.Configuration.ApiClient.ParameterToString(xPBTransactionId)); // header parameter

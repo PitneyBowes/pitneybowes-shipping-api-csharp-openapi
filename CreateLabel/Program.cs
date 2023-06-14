@@ -15,7 +15,7 @@ namespace CreateLabel
 
             Configuration.Default.OAuthApiKey = "<API_KEY_REPLACE>";
             Configuration.Default.OAuthSecret = "<API_SECRET_REPLACE>";
-           
+
 
 
             DateTime dt = DateTime.Now;
@@ -68,8 +68,7 @@ namespace CreateLabel
                 Address toAddress = new Address(name: name2, phone: phone2, residential: residential2, addressLines: addressLines2, cityTown: cityTown2, stateProvince: stateProvince2, postalCode: postalCode2,
                     countryCode: countryCode2,company: company2,email:email2);
 
-                
-                
+               
                 
                 //Parcel 
                 ParcelDimension parcelDimension = new ParcelDimension();
@@ -97,13 +96,20 @@ namespace CreateLabel
                 //ShipemntOptions
                 List<Parameter> shipmentoption = new List<Parameter> { new Parameter("SHIPPER_ID", "9025037569"), new Parameter("ADD_TO_MANIFEST", "true"), new Parameter("HIDE_TOTAL_CARRIER_CHARGE", "true"), new Parameter("PRINT_CUSTOM_MESSAGE_1", "custom message for label"), new Parameter("SHIPPING_LABEL_RECEIPT", "NO_OPTIONS") };
 
+                //Customs
+                var customs = new Customs();
+                CustomsInfo customsInfo = new CustomsInfo(currencyCode: "USD");
+               
+                CustomsItem customItem = new CustomsItem(description: "define the custom item details here", itemId: "commodity", quantity: 1, unitPrice: 4.05m, originCountryCode: "US",
+                    unitWeight: new ParcelWeight(weight: 1, unitOfMeasurement: UnitOfWeight.LB), url: "www.ebay.com");
+
+                customs.CustomsInfo = customsInfo;
+                customs.CustomsItems = new List<CustomsItem>() { customItem };
+
+                var shipment = new Shipment(fromAddress: fromAddress, toAddress: toAddress,parcel: parcel, rates: new List<Rate>() { rate },documents: new List<Document>(){ document },shipmentOptions:shipmentoption,customs:customs); // Shipment | request
                 
-                var shipment = new Shipment(fromAddress: fromAddress, toAddress: toAddress,parcel: parcel, rates: new List<Rate>() { rate },documents: new List<Document>(){ document },shipmentOptions:shipmentoption); // Shipment | request
-
-
-
                 // This operation creates a shipment and purchases a shipment label.
-                Shipment result = apiInstance.CreateShipmentLabel(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId);
+                Shipment result = apiInstance.CreateShipmentLabel(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, null, null, null, "true", Carrier.PBI.ToString());
 
                 // Console.WriteLine((new System.Collections.Generic.ICollectionDebugView<shippingapi.Model.Document>(result.Documents).Items[0]).Contents);
                 Console.WriteLine(result.Documents[0].Contents);
