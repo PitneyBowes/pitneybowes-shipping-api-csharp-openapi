@@ -13,8 +13,8 @@ namespace CreateLabel
         {
             Configuration.Default.BasePath = "https://shipping-api-sandbox.pitneybowes.com/shippingservices";
 
-            Configuration.Default.OAuthApiKey = "<API_KEY_REPLACE>";
-            Configuration.Default.OAuthSecret = "<API_SECRET_REPLACE>";
+            Configuration.Default.OAuthApiKey = "8fOszp05Clf2FirJQYmNrRc4e2ibTo9X";
+            Configuration.Default.OAuthSecret = "PfHEE4Ld6ms4M5ey";
            
 
 
@@ -23,7 +23,7 @@ namespace CreateLabel
             var apiInstance = new ShipmentApi(Configuration.Default);
             var xPBTransactionId = dt.Millisecond.ToString();  // string | Required. A unique identifier for the transaction, up to 25 characters.
             var xPBUnifiedErrorStructure = true;  // bool? | Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional)  (default to true)
-            var xPBIntegratorCarrierId = "898644";  // string | USPS Only. Negotiated services rate, if applicable. (optional) 
+            var xPBIntegratorCarrierId = "898642";  // string | USPS Only. Negotiated services rate, if applicable. (optional) 
             //var xPBShipperRatePlan = xPBShipperRatePlan_example;  // string | USPS Only. Shipper rate plan, if applicable. For more information, see [this FAQ](https://shipping.pitneybowes.com/faqs/rates.html#rate-plans-faq). (optional) 
             //var xPBShipmentGroupId = xPBShipmentGroupId_example;  // string |  **[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**.The job number that represents the agreement between the merchant and PB Presort. This was provided by Pitney Bowes during [merchant onboarding for PB Presort](https://shipping.pitneybowes.com/carriers/pb-presort.html). (optional) 
             //var xPBShipperCarrierAccountId = xPBShipperCarrierAccountId_example;  // string | **[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant's Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional) 
@@ -68,8 +68,7 @@ namespace CreateLabel
                 Address toAddress = new Address(name: name2, phone: phone2, residential: residential2, addressLines: addressLines2, cityTown: cityTown2, stateProvince: stateProvince2, postalCode: postalCode2,
                     countryCode: countryCode2,company: company2,email:email2);
 
-                
-                
+               
                 
                 //Parcel 
                 ParcelDimension parcelDimension = new ParcelDimension();
@@ -95,15 +94,22 @@ namespace CreateLabel
                 Document document = new Document(type: "SHIPPING_LABEL",contentType: Document.ContentTypeEnum.URL,size:Document.SizeEnum._4X6,fileFormat:Document.FileFormatEnum.PDF,printDialogOption:Document.PrintDialogOptionEnum.NOPRINTDIALOG);
 
                 //ShipemntOptions
-                List<Parameter> shipmentoption = new List<Parameter> { new Parameter("SHIPPER_ID", "9025037569"), new Parameter("ADD_TO_MANIFEST", "true"), new Parameter("HIDE_TOTAL_CARRIER_CHARGE", "true"), new Parameter("PRINT_CUSTOM_MESSAGE_1", "custom message for label"), new Parameter("SHIPPING_LABEL_RECEIPT", "NO_OPTIONS") };
+                List<Parameter> shipmentoption = new List<Parameter> { new Parameter("SHIPPER_ID", "9024595813"), new Parameter("ADD_TO_MANIFEST", "true"), new Parameter("HIDE_TOTAL_CARRIER_CHARGE", "true"), new Parameter("PRINT_CUSTOM_MESSAGE_1", "custom message for label"), new Parameter("SHIPPING_LABEL_RECEIPT", "NO_OPTIONS") };
 
+                //Customs
+                var customs = new Customs();
+                CustomsInfo customsInfo = new CustomsInfo(currencyCode: "USD");
+               
+                CustomsItem customItem = new CustomsItem(description: "define the custom item details here", itemId: "commodity", quantity: 1, unitPrice: 4.05m, originCountryCode: "US",
+                    unitWeight: new ParcelWeight(weight: 1, unitOfMeasurement: UnitOfWeight.LB), url: "www.ebay.com");
+
+                customs.CustomsInfo = customsInfo;
+                customs.CustomsItems = new List<CustomsItem>() { customItem };
+
+                var shipment = new Shipment(fromAddress: fromAddress, toAddress: toAddress,parcel: parcel, rates: new List<Rate>() { rate },documents: new List<Document>(){ document },shipmentOptions:shipmentoption,customs:customs); // Shipment | request
                 
-                var shipment = new Shipment(fromAddress: fromAddress, toAddress: toAddress,parcel: parcel, rates: new List<Rate>() { rate },documents: new List<Document>(){ document },shipmentOptions:shipmentoption); // Shipment | request
-
-
-
                 // This operation creates a shipment and purchases a shipment label.
-                Shipment result = apiInstance.CreateShipmentLabel(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId);
+                Shipment result = apiInstance.CreateShipmentLabel(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, null, null, null, "true", Carrier.PBI.ToString());
 
                 // Console.WriteLine((new System.Collections.Generic.ICollectionDebugView<shippingapi.Model.Document>(result.Documents).Items[0]).Contents);
                 Console.WriteLine(result.Documents[0].Contents);
