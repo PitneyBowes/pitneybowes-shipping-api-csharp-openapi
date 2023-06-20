@@ -39,7 +39,7 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>CancelShipment</returns>
-        CancelShipment CancelShipment (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
+        CancelShipment CancelShipment(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
 
         /// <summary>
         /// cancelShipment
@@ -55,7 +55,7 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>ApiResponse of CancelShipment</returns>
-        ApiResponse<CancelShipment> CancelShipmentWithHttpInfo (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
+        ApiResponse<CancelShipment> CancelShipmentWithHttpInfo(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
         /// <summary>
         /// This operation creates a shipment and purchases a shipment label.
         /// </summary>
@@ -72,7 +72,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Shipment</returns>
-        Shipment CreateShipmentLabel (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string));
+        Shipment CreateShipmentLabel(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string));
 
         /// <summary>
         /// This operation creates a shipment and purchases a shipment label.
@@ -90,7 +90,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string));
+        ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string));
         /// <summary>
         /// reprintShipment
         /// </summary>
@@ -102,7 +102,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Shipment</returns>
-        Shipment ReprintShipment (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        Shipment ReprintShipment(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
 
         /// <summary>
         /// reprintShipment
@@ -115,7 +115,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        ApiResponse<Shipment> ReprintShipmentWithHttpInfo (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        ApiResponse<Shipment> ReprintShipmentWithHttpInfo(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
         /// <summary>
         /// retryShipment
         /// </summary>
@@ -127,7 +127,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Shipment</returns>
-        Shipment RetryShipment (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        Shipment RetryShipment(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
 
         /// <summary>
         /// retryShipment
@@ -140,7 +140,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        ApiResponse<Shipment> RetryShipmentWithHttpInfo (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        ApiResponse<Shipment> RetryShipmentWithHttpInfo(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,7 +157,7 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>Task of CancelShipment</returns>
-        System.Threading.Tasks.Task<CancelShipment> CancelShipmentAsync (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
+        System.Threading.Tasks.Task<CancelShipment> CancelShipmentAsync(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
 
         /// <summary>
         /// cancelShipment
@@ -173,7 +173,7 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>Task of ApiResponse (CancelShipment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CancelShipment>> CancelShipmentAsyncWithHttpInfo (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
+        System.Threading.Tasks.Task<ApiResponse<CancelShipment>> CancelShipmentAsyncWithHttpInfo(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?));
         /// <summary>
         /// This operation creates a shipment and purchases a shipment label.
         /// </summary>
@@ -190,7 +190,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Task of Shipment</returns>
-        System.Threading.Tasks.Task<Shipment> CreateShipmentLabelAsync (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string));
+        System.Threading.Tasks.Task<Shipment> CreateShipmentLabelAsync(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string));
 
         /// <summary>
         /// This operation creates a shipment and purchases a shipment label.
@@ -208,7 +208,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Task of ApiResponse (Shipment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Shipment>> CreateShipmentLabelAsyncWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string));
+        System.Threading.Tasks.Task<ApiResponse<Shipment>> CreateShipmentLabelAsyncWithHttpInfo(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string));
         /// <summary>
         /// reprintShipment
         /// </summary>
@@ -220,7 +220,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of Shipment</returns>
-        System.Threading.Tasks.Task<Shipment> ReprintShipmentAsync (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        System.Threading.Tasks.Task<Shipment> ReprintShipmentAsync(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
 
         /// <summary>
         /// reprintShipment
@@ -233,7 +233,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of ApiResponse (Shipment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Shipment>> ReprintShipmentAsyncWithHttpInfo (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        System.Threading.Tasks.Task<ApiResponse<Shipment>> ReprintShipmentAsyncWithHttpInfo(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
         /// <summary>
         /// retryShipment
         /// </summary>
@@ -245,7 +245,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of Shipment</returns>
-        System.Threading.Tasks.Task<Shipment> RetryShipmentAsync (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        System.Threading.Tasks.Task<Shipment> RetryShipmentAsync(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
 
         /// <summary>
         /// retryShipment
@@ -258,7 +258,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of ApiResponse (Shipment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Shipment>> RetryShipmentAsyncWithHttpInfo (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
+        System.Threading.Tasks.Task<ApiResponse<Shipment>> RetryShipmentAsyncWithHttpInfo(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?));
         #endregion Asynchronous Operations
     }
 
@@ -330,7 +330,7 @@ namespace shippingapi.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public shippingapi.Client.Configuration Configuration {get; set;}
+        public shippingapi.Client.Configuration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -381,10 +381,10 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>CancelShipment</returns>
-        public CancelShipment CancelShipment (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
+        public CancelShipment CancelShipment(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
         {
-             ApiResponse<CancelShipment> localVarResponse = CancelShipmentWithHttpInfo(xPBTransactionId, shipmentId, xPBUnifiedErrorStructure, xPBShipperCarrierAccountId, cancelInitiator, carrier);
-             return localVarResponse.Data;
+            ApiResponse<CancelShipment> localVarResponse = CancelShipmentWithHttpInfo(xPBTransactionId, shipmentId, xPBUnifiedErrorStructure, xPBShipperCarrierAccountId, cancelInitiator, carrier);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -398,7 +398,7 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>ApiResponse of CancelShipment</returns>
-        public ApiResponse<CancelShipment> CancelShipmentWithHttpInfo (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
+        public ApiResponse<CancelShipment> CancelShipmentWithHttpInfo(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
         {
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
@@ -443,11 +443,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -457,7 +457,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<CancelShipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CancelShipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelShipment)));
+                (CancelShipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelShipment)));
         }
 
         /// <summary>
@@ -471,10 +471,10 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>Task of CancelShipment</returns>
-        public async System.Threading.Tasks.Task<CancelShipment> CancelShipmentAsync (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
+        public async System.Threading.Tasks.Task<CancelShipment> CancelShipmentAsync(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
         {
-             ApiResponse<CancelShipment> localVarResponse = await CancelShipmentAsyncWithHttpInfo(xPBTransactionId, shipmentId, xPBUnifiedErrorStructure, xPBShipperCarrierAccountId, cancelInitiator, carrier);
-             return localVarResponse.Data;
+            ApiResponse<CancelShipment> localVarResponse = await CancelShipmentAsyncWithHttpInfo(xPBTransactionId, shipmentId, xPBUnifiedErrorStructure, xPBShipperCarrierAccountId, cancelInitiator, carrier);
+            return localVarResponse.Data;
 
         }
 
@@ -489,7 +489,7 @@ namespace shippingapi.Api
         /// <param name="cancelInitiator">Indicates that this refund request is initiated by the shipper. Set this to: SHIPPER (optional)</param>
         /// <param name="carrier">Conditional. The carrier. This is required if the carrier is not USPS (optional)</param>
         /// <returns>Task of ApiResponse (CancelShipment)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CancelShipment>> CancelShipmentAsyncWithHttpInfo (string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
+        public async System.Threading.Tasks.Task<ApiResponse<CancelShipment>> CancelShipmentAsyncWithHttpInfo(string xPBTransactionId, string shipmentId, string xPBUnifiedErrorStructure = default(string), string xPBShipperCarrierAccountId = default(string), string cancelInitiator = default(string), Carrier? carrier = default(Carrier?))
         {
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
@@ -534,11 +534,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -548,7 +548,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<CancelShipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CancelShipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelShipment)));
+                (CancelShipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelShipment)));
         }
 
         /// <summary>
@@ -564,10 +564,10 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Shipment</returns>
-        public Shipment CreateShipmentLabel (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
+        public Shipment CreateShipmentLabel(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
         {
-             ApiResponse<Shipment> localVarResponse = CreateShipmentLabelWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment, carrier);
-             return localVarResponse.Data;
+            ApiResponse<Shipment> localVarResponse = CreateShipmentLabelWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment, carrier);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -583,7 +583,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        public ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
+        public ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
         {
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
@@ -639,11 +639,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -653,7 +653,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<Shipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Shipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
+                (Shipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
         }
 
         /// <summary>
@@ -669,10 +669,10 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Task of Shipment</returns>
-        public async System.Threading.Tasks.Task<Shipment> CreateShipmentLabelAsync (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
+        public async System.Threading.Tasks.Task<Shipment> CreateShipmentLabelAsync(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
         {
-             ApiResponse<Shipment> localVarResponse = await CreateShipmentLabelAsyncWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment);
-             return localVarResponse.Data;
+            ApiResponse<Shipment> localVarResponse = await CreateShipmentLabelAsyncWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment);
+            return localVarResponse.Data;
 
         }
 
@@ -689,7 +689,7 @@ namespace shippingapi.Api
         /// <param name="xPBShipperCarrierAccountId">**[Required parameter for PBPresort service](https://shipping.pitneybowes.com/api/post-shipments-presort.html)**. The merchant&#39;s Mailer ID (MID), as provided by Pitney Bowes during merchant onboarding for PB Presort. (optional)</param>
         /// <param name="includeDeliveryCommitment">If set to true, returns estimated transit times in days. Only for USPS Create Shipment. See also [Pitney Bowes Delivery Guarantee](https://shipping.pitneybowes.com/faqs/delivery-guarantee.html) [Do all USPS services return transit times?](https://shipping.pitneybowes.com/faqs/shipments.html#transit-times-faq) (optional)</param>
         /// <returns>Task of ApiResponse (Shipment)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Shipment>> CreateShipmentLabelAsyncWithHttpInfo (string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<Shipment>> CreateShipmentLabelAsyncWithHttpInfo(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
         {
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
@@ -744,11 +744,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -758,7 +758,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<Shipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Shipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
+                (Shipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
         }
 
         /// <summary>
@@ -769,10 +769,10 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Shipment</returns>
-        public Shipment ReprintShipment (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public Shipment ReprintShipment(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
-             ApiResponse<Shipment> localVarResponse = ReprintShipmentWithHttpInfo(shipmentId, xPBUnifiedErrorStructure, carrier);
-             return localVarResponse.Data;
+            ApiResponse<Shipment> localVarResponse = ReprintShipmentWithHttpInfo(shipmentId, xPBUnifiedErrorStructure, carrier);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -783,7 +783,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        public ApiResponse<Shipment> ReprintShipmentWithHttpInfo (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public ApiResponse<Shipment> ReprintShipmentWithHttpInfo(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             // verify the required parameter 'shipmentId' is set
             if (shipmentId == null)
@@ -822,11 +822,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -836,7 +836,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<Shipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Shipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
+                (Shipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
         }
 
         /// <summary>
@@ -847,10 +847,10 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of Shipment</returns>
-        public async System.Threading.Tasks.Task<Shipment> ReprintShipmentAsync (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public async System.Threading.Tasks.Task<Shipment> ReprintShipmentAsync(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
-             ApiResponse<Shipment> localVarResponse = await ReprintShipmentAsyncWithHttpInfo(shipmentId, xPBUnifiedErrorStructure, carrier);
-             return localVarResponse.Data;
+            ApiResponse<Shipment> localVarResponse = await ReprintShipmentAsyncWithHttpInfo(shipmentId, xPBUnifiedErrorStructure, carrier);
+            return localVarResponse.Data;
 
         }
 
@@ -862,7 +862,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of ApiResponse (Shipment)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Shipment>> ReprintShipmentAsyncWithHttpInfo (string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public async System.Threading.Tasks.Task<ApiResponse<Shipment>> ReprintShipmentAsyncWithHttpInfo(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             // verify the required parameter 'shipmentId' is set
             if (shipmentId == null)
@@ -901,11 +901,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -915,7 +915,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<Shipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Shipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
+                (Shipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
         }
 
         /// <summary>
@@ -926,10 +926,10 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Shipment</returns>
-        public Shipment RetryShipment (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public Shipment RetryShipment(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
-             ApiResponse<Shipment> localVarResponse = RetryShipmentWithHttpInfo(originalTransactionId, xPBUnifiedErrorStructure, carrier);
-             return localVarResponse.Data;
+            ApiResponse<Shipment> localVarResponse = RetryShipmentWithHttpInfo(originalTransactionId, xPBUnifiedErrorStructure, carrier);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -940,7 +940,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>ApiResponse of Shipment</returns>
-        public ApiResponse<Shipment> RetryShipmentWithHttpInfo (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public ApiResponse<Shipment> RetryShipmentWithHttpInfo(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             // verify the required parameter 'originalTransactionId' is set
             if (originalTransactionId == null)
@@ -979,11 +979,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -993,7 +993,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<Shipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Shipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
+                (Shipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
         }
 
         /// <summary>
@@ -1004,10 +1004,10 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of Shipment</returns>
-        public async System.Threading.Tasks.Task<Shipment> RetryShipmentAsync (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public async System.Threading.Tasks.Task<Shipment> RetryShipmentAsync(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
-             ApiResponse<Shipment> localVarResponse = await RetryShipmentAsyncWithHttpInfo(originalTransactionId, xPBUnifiedErrorStructure, carrier);
-             return localVarResponse.Data;
+            ApiResponse<Shipment> localVarResponse = await RetryShipmentAsyncWithHttpInfo(originalTransactionId, xPBUnifiedErrorStructure, carrier);
+            return localVarResponse.Data;
 
         }
 
@@ -1019,7 +1019,7 @@ namespace shippingapi.Api
         /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
         /// <param name="carrier"> (optional)</param>
         /// <returns>Task of ApiResponse (Shipment)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Shipment>> RetryShipmentAsyncWithHttpInfo (string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
+        public async System.Threading.Tasks.Task<ApiResponse<Shipment>> RetryShipmentAsyncWithHttpInfo(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             // verify the required parameter 'originalTransactionId' is set
             if (originalTransactionId == null)
@@ -1058,11 +1058,11 @@ namespace shippingapi.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -1072,7 +1072,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<Shipment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Shipment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
+                (Shipment)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Shipment)));
         }
 
     }
