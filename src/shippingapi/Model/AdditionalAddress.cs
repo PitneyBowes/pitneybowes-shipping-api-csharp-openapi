@@ -64,7 +64,13 @@ namespace shippingapi.Model
             /// Enum EXPORTER for value: EXPORTER
             /// </summary>
             [EnumMember(Value = "EXPORTER")]
-            EXPORTER = 5
+            EXPORTER = 5,
+
+            /// <summary>
+            /// Enum SELLER for value: SELLER
+            /// </summary>
+            [EnumMember(Value = "SELLER")]
+            SELLER = 6
 
         }
 

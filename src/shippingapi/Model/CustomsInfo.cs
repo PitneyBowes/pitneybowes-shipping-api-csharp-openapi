@@ -311,7 +311,8 @@ namespace shippingapi.Model
         /// <param name="shippingDocumentType">shippingDocumentType.</param>
         /// <param name="signatureContact">signatureContact.</param>
         /// <param name="termsOfSale">termsOfSale.</param>
-        public CustomsInfo(string eELPFC = default(string), string blanketEndDate = default(string), string blanketStartDate = default(string), BusinessTypeEnum? businessType = default(BusinessTypeEnum), string certificateNumber = default(string), string comments = default(string), string currencyCode = default(string), decimal customsDeclaredValue = default(decimal), string declarationStatement = default(string), decimal firstMileInsuredAmount = default(decimal), decimal firstMileShippingAmount = default(decimal), decimal freightCharge = default(decimal), string fromCustomsReference = default(string), decimal handlingCosts = default(decimal), string importerCustomsReference = default(string), ImporterCustomsReferenceTypeEnum? importerCustomsReferenceType = default(ImporterCustomsReferenceTypeEnum), decimal insuredAmount = default(decimal), string insuredNumber = default(string), string invoiceNumber = default(string), string licenseNumber = default(string), decimal otherCharge = default(decimal), string otherDescription = default(string), OtherTypeEnum? otherType = default(OtherTypeEnum?), decimal packingCosts = default(decimal), string portOfClearance = default(string), ProducerSpecificationEnum? producerSpecification = default(ProducerSpecificationEnum?), ReasonForExportEnum? reasonForExport = default(ReasonForExportEnum?), string reasonForExportExplanation = default(string), decimal sdrValue = default(decimal), decimal shippingAmount = default(decimal), ShippingDocumentTypeEnum? shippingDocumentType = default(ShippingDocumentTypeEnum?), Address signatureContact = default(Address), string termsOfSale = default(string))
+        /// <param name="importDate">importDate.</param>
+        public CustomsInfo(string importDate = default(string),string eELPFC = default(string), string blanketEndDate = default(string), string blanketStartDate = default(string), BusinessTypeEnum? businessType = default(BusinessTypeEnum), string certificateNumber = default(string), string comments = default(string), string currencyCode = default(string), decimal customsDeclaredValue = default(decimal), string declarationStatement = default(string), decimal firstMileInsuredAmount = default(decimal), decimal firstMileShippingAmount = default(decimal), decimal freightCharge = default(decimal), string fromCustomsReference = default(string), decimal handlingCosts = default(decimal), string importerCustomsReference = default(string), ImporterCustomsReferenceTypeEnum? importerCustomsReferenceType = default(ImporterCustomsReferenceTypeEnum), decimal insuredAmount = default(decimal), string insuredNumber = default(string), string invoiceNumber = default(string), string licenseNumber = default(string), decimal otherCharge = default(decimal), string otherDescription = default(string), OtherTypeEnum? otherType = default(OtherTypeEnum?), decimal packingCosts = default(decimal), string portOfClearance = default(string), ProducerSpecificationEnum? producerSpecification = default(ProducerSpecificationEnum?), ReasonForExportEnum? reasonForExport = default(ReasonForExportEnum?), string reasonForExportExplanation = default(string), decimal sdrValue = default(decimal), decimal shippingAmount = default(decimal), ShippingDocumentTypeEnum? shippingDocumentType = default(ShippingDocumentTypeEnum?), Address signatureContact = default(Address), string termsOfSale = default(string))
         {
             // to ensure "currencyCode" is required (not null)
             if (currencyCode == null)
@@ -341,6 +342,7 @@ namespace shippingapi.Model
             this.InsuredAmount = insuredAmount;
             this.InsuredNumber = insuredNumber;
             this.InvoiceNumber = invoiceNumber;
+            this.ImportDate = importDate;
             this.LicenseNumber = licenseNumber;
             this.OtherCharge = otherCharge;
             this.OtherDescription = otherDescription;
@@ -523,11 +525,17 @@ namespace shippingapi.Model
         [DataMember(Name = "shippingAmount", EmitDefaultValue = false)]
         public decimal ShippingAmount { get; set; }
 
-      /*  // <summary>
-        /// Gets or Sets ShippingDocumentType
+        /// <summary>
+        /// Gets or Sets ImportDate
         /// </summary>
-        [DataMember(Name = "shippingDocumentType", EmitDefaultValue = false)]
-        public string ShippingDocumentType { get; set; }*/
+        [DataMember(Name = "importDate", EmitDefaultValue = false)]
+        public string ImportDate { get; set; }
+
+        /*  // <summary>
+          /// Gets or Sets ShippingDocumentType
+          /// </summary>
+          [DataMember(Name = "shippingDocumentType", EmitDefaultValue = false)]
+          public string ShippingDocumentType { get; set; }*/
 
         /// <summary>
         /// Gets or Sets SignatureContact
@@ -582,6 +590,7 @@ namespace shippingapi.Model
             sb.Append("  ShippingDocumentType: ").Append(ShippingDocumentType).Append("\n");
             sb.Append("  SignatureContact: ").Append(SignatureContact).Append("\n");
             sb.Append("  TermsOfSale: ").Append(TermsOfSale).Append("\n");
+            sb.Append("  ImportDate: ").Append(ImportDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -780,6 +789,11 @@ namespace shippingapi.Model
                     this.TermsOfSale == input.TermsOfSale ||
                     (this.TermsOfSale != null &&
                     this.TermsOfSale.Equals(input.TermsOfSale))
+                ) &&
+                (
+                    this.ImportDate == input.ImportDate ||
+                    (this.ImportDate != null &&
+                    this.ImportDate.Equals(input.ImportDate))
                 );
         }
 
@@ -858,6 +872,8 @@ namespace shippingapi.Model
                     hashCode = hashCode * 59 + this.SignatureContact.GetHashCode();
                 if (this.TermsOfSale != null)
                     hashCode = hashCode * 59 + this.TermsOfSale.GetHashCode();
+                if (this.ImportDate != null)
+                    hashCode = hashCode * 59 + this.ImportDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -148,6 +148,7 @@ Contact: support@pb.com
     <Compile Include="Model\DocTabItem.cs" />
     <Compile Include="Model\Document.cs" />
     <Compile Include="Model\DocumentPage.cs" />
+    <Compile Include="Model\domesticShipmentDetails.cs" />
     <Compile Include="Model\Errors.cs" />
     <Compile Include="Model\HazmatDetails.cs" />
     <Compile Include="Model\InfectiousSubstanceContact.cs" />
