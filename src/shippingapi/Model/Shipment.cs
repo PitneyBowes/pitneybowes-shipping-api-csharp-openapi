@@ -79,7 +79,8 @@ namespace shippingapi.Model
         /// <param name="shipmentType">shipmentType.</param>
         /// <param name="soldToAddress">soldToAddress.</param>
         /// <param name="toAddress">toAddress (required).</param>
-        public Shipment(List<AdditionalAddress> additionalAddresses = default(List<AdditionalAddress>), Address altReturnAddress = default(Address), List<CarrierPayment> carrierPayments = default(List<CarrierPayment>), Customs customs = default(Customs), List<Document> documents = default(List<Document>), Address fromAddress = default(Address), HazmatDetails hazmatDetails = default(HazmatDetails), Parcel parcel = default(Parcel), string parcelTrackingNumber = default(string), List<Rate> rates = default(List<Rate>), List<Parameter> references = default(List<Parameter>), string shipmentId = default(string), List<Parameter> shipmentOptions = default(List<Parameter>), ShipmentTypeEnum? shipmentType = default(ShipmentTypeEnum?), Address soldToAddress = default(Address), Address toAddress = default(Address))
+        /// <param name="domesticShipmentDetails">toAddress (required).</param>
+        public Shipment(List<AdditionalAddress> additionalAddresses = default(List<AdditionalAddress>), Address altReturnAddress = default(Address), List<CarrierPayment> carrierPayments = default(List<CarrierPayment>), Customs customs = default(Customs), List<Document> documents = default(List<Document>), Address fromAddress = default(Address), HazmatDetails hazmatDetails = default(HazmatDetails), Parcel parcel = default(Parcel), string parcelTrackingNumber = default(string), List<Rate> rates = default(List<Rate>), List<Parameter> references = default(List<Parameter>), DomesticShipmentDetails domesticShipmentDetails = default(DomesticShipmentDetails), string shipmentId = default(string), List<Parameter> shipmentOptions = default(List<Parameter>), ShipmentTypeEnum? shipmentType = default(ShipmentTypeEnum?), Address soldToAddress = default(Address), Address toAddress = default(Address))
         {
             // to ensure "fromAddress" is required (not null)
             if (fromAddress == null)
@@ -110,7 +111,8 @@ namespace shippingapi.Model
             {
                 this.Rates = rates;
             }
-            
+
+
             // to ensure "toAddress" is required (not null)
             if (toAddress == null)
             {
@@ -133,8 +135,9 @@ namespace shippingapi.Model
             this.ShipmentOptions = shipmentOptions;
             this.ShipmentType = shipmentType;
             this.SoldToAddress = soldToAddress;
+            this.DomesticShipmentDetails = domesticShipmentDetails;
         }
-        
+
         /// <summary>
         /// Gets or Sets AdditionalAddresses
         /// </summary>
@@ -225,7 +228,11 @@ namespace shippingapi.Model
         /// </summary>
         [DataMember(Name="toAddress", EmitDefaultValue=true)]
         public Address ToAddress { get; set; }
-
+        /// <summary>
+        /// Gets or Sets DomesticShipmentDetails
+        /// </summary>
+        [DataMember(Name = "domesticShipmentDetails", EmitDefaultValue = false)]
+        public DomesticShipmentDetails DomesticShipmentDetails { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -245,6 +252,7 @@ namespace shippingapi.Model
             sb.Append("  ParcelTrackingNumber: ").Append(ParcelTrackingNumber).Append("\n");
             sb.Append("  Rates: ").Append(Rates).Append("\n");
             sb.Append("  References: ").Append(References).Append("\n");
+            sb.Append("  DomesticShipmentDetails: ").Append(DomesticShipmentDetails).Append("\n");
             sb.Append("  ShipmentId: ").Append(ShipmentId).Append("\n");
             sb.Append("  ShipmentOptions: ").Append(ShipmentOptions).Append("\n");
             sb.Append("  ShipmentType: ").Append(ShipmentType).Append("\n");
@@ -283,93 +291,96 @@ namespace shippingapi.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
                     this.AdditionalAddresses == input.AdditionalAddresses ||
                     this.AdditionalAddresses != null &&
                     input.AdditionalAddresses != null &&
                     this.AdditionalAddresses.SequenceEqual(input.AdditionalAddresses)
-                ) && 
+                ) &&
                 (
                     this.AltReturnAddress == input.AltReturnAddress ||
                     (this.AltReturnAddress != null &&
                     this.AltReturnAddress.Equals(input.AltReturnAddress))
-                ) && 
+                ) &&
                 (
                     this.CarrierPayments == input.CarrierPayments ||
                     this.CarrierPayments != null &&
                     input.CarrierPayments != null &&
                     this.CarrierPayments.SequenceEqual(input.CarrierPayments)
-                ) && 
+                ) &&
                 (
                     this.Customs == input.Customs ||
                     (this.Customs != null &&
                     this.Customs.Equals(input.Customs))
-                ) && 
+                ) &&
                 (
                     this.Documents == input.Documents ||
                     this.Documents != null &&
                     input.Documents != null &&
                     this.Documents.SequenceEqual(input.Documents)
-                ) && 
+                ) &&
                 (
                     this.FromAddress == input.FromAddress ||
                     (this.FromAddress != null &&
                     this.FromAddress.Equals(input.FromAddress))
-                ) && 
+                ) &&
                 (
                     this.HazmatDetails == input.HazmatDetails ||
                     (this.HazmatDetails != null &&
                     this.HazmatDetails.Equals(input.HazmatDetails))
-                ) && 
+                ) &&
                 (
                     this.Parcel == input.Parcel ||
                     (this.Parcel != null &&
                     this.Parcel.Equals(input.Parcel))
-                ) && 
+                ) &&
                 (
                     this.ParcelTrackingNumber == input.ParcelTrackingNumber ||
                     (this.ParcelTrackingNumber != null &&
                     this.ParcelTrackingNumber.Equals(input.ParcelTrackingNumber))
-                ) && 
+                ) &&
                 (
                     this.Rates == input.Rates ||
                     this.Rates != null &&
                     input.Rates != null &&
                     this.Rates.SequenceEqual(input.Rates)
-                ) && 
+                ) &&
                 (
                     this.References == input.References ||
                     this.References != null &&
                     input.References != null &&
                     this.References.SequenceEqual(input.References)
-                ) && 
+                ) &&
                 (
                     this.ShipmentId == input.ShipmentId ||
                     (this.ShipmentId != null &&
                     this.ShipmentId.Equals(input.ShipmentId))
-                ) && 
+                ) &&
                 (
                     this.ShipmentOptions == input.ShipmentOptions ||
                     this.ShipmentOptions != null &&
                     input.ShipmentOptions != null &&
                     this.ShipmentOptions.SequenceEqual(input.ShipmentOptions)
-                ) && 
+                ) &&
                 (
                     this.ShipmentType == input.ShipmentType ||
                     (this.ShipmentType != null &&
                     this.ShipmentType.Equals(input.ShipmentType))
-                ) && 
+                ) &&
                 (
                     this.SoldToAddress == input.SoldToAddress ||
                     (this.SoldToAddress != null &&
                     this.SoldToAddress.Equals(input.SoldToAddress))
-                ) && 
+                ) &&
                 (
                     this.ToAddress == input.ToAddress ||
                     (this.ToAddress != null &&
                     this.ToAddress.Equals(input.ToAddress))
-                );
+                ) && (
+                this.DomesticShipmentDetails == input.DomesticShipmentDetails ||
+                    (this.DomesticShipmentDetails != null &&
+                    this.DomesticShipmentDetails.Equals(input.DomesticShipmentDetails)));
         }
 
         /// <summary>
@@ -413,6 +424,8 @@ namespace shippingapi.Model
                     hashCode = hashCode * 59 + this.SoldToAddress.GetHashCode();
                 if (this.ToAddress != null)
                     hashCode = hashCode * 59 + this.ToAddress.GetHashCode();
+                if (this.DomesticShipmentDetails != null)
+                    hashCode = hashCode * 59 + this.DomesticShipmentDetails.GetHashCode();
                 return hashCode;
             }
         }

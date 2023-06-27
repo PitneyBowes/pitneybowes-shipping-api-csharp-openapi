@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = shippingapi.Client.OpenAPIDateConverter;
+using Newtonsoft.Json.Linq;
 
 namespace shippingapi.Model
 {
@@ -265,7 +266,26 @@ namespace shippingapi.Model
         /// Enum XPDFREIGHT for value: XPD_FREIGHT
         /// </summary>
         [EnumMember(Value = "XPD_FREIGHT")]
-        XPDFREIGHT = 39
+        XPDFREIGHT = 39,
+        /// <summary>
+        /// Enum PBXRCS for value: PBXRCS
+        /// </summary>
+        [EnumMember(Value = "PBXRCS")]
+        PBXRCS = 40,
+
+        /// <summary>
+        /// Enum PBXRS for value: PBXRS
+        /// </summary>
+        [EnumMember(Value = "PBXRS")]
+        PBXRS = 41,
+
+        /// <summary>
+        /// Enum PBDS for value: PBXRS
+        /// </summary>
+        [EnumMember(Value = "PBDS")]
+        PBDS = 42
+
+
 
     }
 

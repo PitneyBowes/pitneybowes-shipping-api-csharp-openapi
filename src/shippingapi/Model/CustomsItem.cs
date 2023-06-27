@@ -225,15 +225,15 @@ namespace shippingapi.Model
                 this.UnitPrice = unitPrice;
             }
 
-            // to ensure "unitWeight" is required (not null)
-            if (unitWeight == null)
-            {
-                throw new InvalidDataException("unitWeight is a required property for CustomsItem and cannot be null");
-            }
-            else
-            {
-                this.UnitWeight = unitWeight;
-            }
+            //// to ensure "unitWeight" is required (not null)
+            //if (unitWeight == null)
+            //{
+            //    throw new InvalidDataException("unitWeight is a required property for CustomsItem and cannot be null");
+            //}
+            //else
+            //{
+            //    this.UnitWeight = unitWeight;
+            //}
 
             this.Brand = brand;
             this.Condition = condition;
