@@ -26,9 +26,9 @@ using Newtonsoft.Json.Linq;
 namespace shippingapi.Model
 {
     /// <summary>
-    /// The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | UGA - Ground Advantage Service | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)
+    /// The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | FCM - First-Class Mail | PRCLSEL - Parcel Select | STDPOST - Standard Post | UGA - Ground Advantage Service | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)
     /// </summary>
-    /// <value>The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | UGA -  UGA - Ground Advantage Service | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)</value>
+    /// <value>The abbreviated name of the carrier-specific service. For abbreviations, see the Services table on the [carrier&#39;s reference page](https://shipping.pitneybowes.com/reference/carrier-services.html).   EM - Priority Mail Express | PM - Priority Mail | FCM - First-Class Mail | PRCLSEL - Parcel Select | STDPOST - Standard Post | UGA -  UGA - Ground Advantage Service | LIB - Library Mail | MEDIA - Media Mail | PMOD - Priority Mail Open and Distribute | EMI - Priority Mail Express International | PMI - Priority Mail International | FCMI - First-Class Mail International | FCPIS - First-Class Package International Service. For overseas tracking,  [Do the APIs support E-USPS DELCON?](https://shipping.pitneybowes.com/faqs/shipments.html#usps-e-delcon-faq)</value>
 
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -280,13 +280,28 @@ namespace shippingapi.Model
         PBXRS = 41,
 
         /// <summary>
-        /// Enum PBDS for value: PBXRS
+        /// Enum PBDS for value: PBDS
         /// </summary>
         [EnumMember(Value = "PBDS")]
-        PBDS = 42
+        PBDS = 42,
 
+        /// <summary>
+        /// Enum PRCLSEL for value: PRCLSEL
+        /// </summary>
+        [EnumMember(Value = "PRCLSEL")]
+        PRCLSEL = 43,
 
+        /// <summary>
+        /// Enum STDPOST for value: STDPOST
+        /// </summary>
+        [EnumMember(Value = "STDPOST")]
+        STDPOST = 44,
 
+        /// <summary>
+        /// Enum FCM for value: FCM
+        /// </summary>
+        [EnumMember(Value = "FCM")]
+        FCM = 45
     }
 
 }

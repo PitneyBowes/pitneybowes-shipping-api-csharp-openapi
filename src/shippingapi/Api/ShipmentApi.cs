@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
+using Newtonsoft.Json;
+using System.Diagnostics;
 using RestSharp;
 using shippingapi.Client;
 using shippingapi.Model;
@@ -278,6 +280,7 @@ namespace shippingapi.Api
             this.Configuration = new shippingapi.Client.Configuration { BasePath = basePath };
 
             ExceptionFactory = shippingapi.Client.Configuration.DefaultExceptionFactory;
+
         }
 
         /// <summary>
@@ -566,7 +569,11 @@ namespace shippingapi.Api
         /// <returns>Shipment</returns>
         public Shipment CreateShipmentLabel(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
         {
+            var jsonstr = JsonConvert.SerializeObject(shipment);
+            Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : Create Shipment Label method start. \n shipment:" + jsonstr);
             ApiResponse<Shipment> localVarResponse = CreateShipmentLabelWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment, carrier);
+            var localVarResponseJsonstr = JsonConvert.SerializeObject(localVarResponse.Data);
+            Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : Response after create shipment :" + localVarResponseJsonstr);
             return localVarResponse.Data;
         }
 
@@ -585,13 +592,17 @@ namespace shippingapi.Api
         /// <returns>ApiResponse of Shipment</returns>
         public ApiResponse<Shipment> CreateShipmentLabelWithHttpInfo(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string), string carrier = default(string))
         {
+
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'xPBTransactionId' when calling ShipmentApi->CreateShipmentLabel");
+            }
             // verify the required parameter 'shipment' is set
             if (shipment == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'shipment' when calling ShipmentApi->CreateShipmentLabel");
-
+            }
             var localVarPath = "/v1/shipments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
@@ -612,15 +623,32 @@ namespace shippingapi.Api
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
+            }
             if (carrier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "carrier", carrier)); // query parameter
             if (includeDeliveryCommitment != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDeliveryCommitment", includeDeliveryCommitment)); // query parameter
             if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
-            if (xPBTransactionId != null) localVarHeaderParams.Add("X-PB-TransactionId", this.Configuration.ApiClient.ParameterToString(xPBTransactionId)); // header parameter
-            if (xPBIntegratorCarrierId != null) localVarHeaderParams.Add("X-PB-Integrator-CarrierId", this.Configuration.ApiClient.ParameterToString(xPBIntegratorCarrierId)); // header parameter
-            if (xPBShipperRatePlan != null) localVarHeaderParams.Add("X-PB-Shipper-Rate-Plan", this.Configuration.ApiClient.ParameterToString(xPBShipperRatePlan)); // header parameter
-            if (xPBShipmentGroupId != null) localVarHeaderParams.Add("X-PB-ShipmentGroupId", this.Configuration.ApiClient.ParameterToString(xPBShipmentGroupId)); // header parameter
+            if (xPBTransactionId != null)
+            {
+                Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : value of PBTransactionId :" + xPBTransactionId);
+                localVarHeaderParams.Add("X-PB-TransactionId", this.Configuration.ApiClient.ParameterToString(xPBTransactionId)); // header parameter
+            }
+            if (xPBIntegratorCarrierId != null)
+            {
+                Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : value of PBIntegratorCarrierId :" + xPBIntegratorCarrierId);
+                localVarHeaderParams.Add("X-PB-Integrator-CarrierId", this.Configuration.ApiClient.ParameterToString(xPBIntegratorCarrierId)); // header parameter
+            }
+            if (xPBShipperRatePlan != null)
+            {
+                Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : value of xPBShipperRatePlan :" + xPBShipperRatePlan);
+                localVarHeaderParams.Add("X-PB-Shipper-Rate-Plan", this.Configuration.ApiClient.ParameterToString(xPBShipperRatePlan)); // header parameter
+            }
+            if (xPBShipmentGroupId != null)
+            {
+                Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : value of xPBShipmentGroupId  :" + xPBShipmentGroupId);
+                localVarHeaderParams.Add("X-PB-ShipmentGroupId", this.Configuration.ApiClient.ParameterToString(xPBShipmentGroupId)); // header parameter
+            }
             if (xPBShipperCarrierAccountId != null) localVarHeaderParams.Add("X-PB-Shipper-Carrier-AccountId", this.Configuration.ApiClient.ParameterToString(xPBShipperCarrierAccountId)); // header parameter
             if (shipment != null && shipment.GetType() != typeof(byte[]))
             {
@@ -672,7 +700,10 @@ namespace shippingapi.Api
         public async System.Threading.Tasks.Task<Shipment> CreateShipmentLabelAsync(string xPBTransactionId, Shipment shipment, bool? xPBUnifiedErrorStructure = default(bool?), string xPBIntegratorCarrierId = default(string), string xPBShipperRatePlan = default(string), string xPBShipmentGroupId = default(string), string xPBShipperCarrierAccountId = default(string), string includeDeliveryCommitment = default(string))
         {
             ApiResponse<Shipment> localVarResponse = await CreateShipmentLabelAsyncWithHttpInfo(xPBTransactionId, shipment, xPBUnifiedErrorStructure, xPBIntegratorCarrierId, xPBShipperRatePlan, xPBShipmentGroupId, xPBShipperCarrierAccountId, includeDeliveryCommitment);
-            return localVarResponse.Data;
+            Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : success result of CreateShipmentLabel request :" + localVarResponse.Data);
+            var localVarResponseJsonstr = JsonConvert.SerializeObject(localVarResponse.Data);
+            Debug.Print(DateTime.Now.ToString() + " [Info] CreateShipmentLabel : Response after shipment :" + localVarResponseJsonstr);
+            return localVarResponse.Data; 
 
         }
 
@@ -693,11 +724,14 @@ namespace shippingapi.Api
         {
             // verify the required parameter 'xPBTransactionId' is set
             if (xPBTransactionId == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'xPBTransactionId' when calling ShipmentApi->CreateShipmentLabel");
-            // verify the required parameter 'shipment' is set
+                // verify the required parameter 'shipment' is set
+            }
             if (shipment == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'shipment' when calling ShipmentApi->CreateShipmentLabel");
-
+            }
             var localVarPath = "/v1/shipments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
@@ -772,6 +806,8 @@ namespace shippingapi.Api
         public Shipment ReprintShipment(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             ApiResponse<Shipment> localVarResponse = ReprintShipmentWithHttpInfo(shipmentId, xPBUnifiedErrorStructure, carrier);
+            var localVarResponseJsonstr = JsonConvert.SerializeObject(localVarResponse.Data);
+            Debug.Print("[Info] Response in ReprintShipment :" + localVarResponseJsonstr);
             return localVarResponse.Data;
         }
 
@@ -787,8 +823,9 @@ namespace shippingapi.Api
         {
             // verify the required parameter 'shipmentId' is set
             if (shipmentId == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'shipmentId' when calling ShipmentApi->ReprintShipment");
-
+            }
             var localVarPath = "/v1/shipments/{shipmentId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
@@ -810,8 +847,16 @@ namespace shippingapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (shipmentId != null) localVarPathParams.Add("shipmentId", this.Configuration.ApiClient.ParameterToString(shipmentId)); // path parameter
-            if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
+            if (shipmentId != null)
+            {
+                Debug.Print("[Info] Value of shipmentId in method ReprintShipmentWithHttpInfo :" +shipmentId);
+                localVarPathParams.Add("shipmentId", this.Configuration.ApiClient.ParameterToString(shipmentId)); // path parameter
+            }
+            if (xPBUnifiedErrorStructure != null)
+            {
+                Debug.Print("[Info] Value of xPBUnifiedErrorStructure in method ReprintShipmentWithHttpInfo :" + xPBUnifiedErrorStructure);
+                localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
+            }
             if (carrier != null) localVarHeaderParams.Add("carrier", this.Configuration.ApiClient.ParameterToString(carrier)); // header parameter
 
             // authentication (oAuth2ClientCredentials) required
@@ -850,6 +895,8 @@ namespace shippingapi.Api
         public async System.Threading.Tasks.Task<Shipment> ReprintShipmentAsync(string shipmentId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             ApiResponse<Shipment> localVarResponse = await ReprintShipmentAsyncWithHttpInfo(shipmentId, xPBUnifiedErrorStructure, carrier);
+            var localVarResponseJsonstr = JsonConvert.SerializeObject(localVarResponse.Data);
+            Debug.Print("[Info] Response of ReprintShipment  :" + localVarResponseJsonstr);
             return localVarResponse.Data;
 
         }
@@ -866,7 +913,9 @@ namespace shippingapi.Api
         {
             // verify the required parameter 'shipmentId' is set
             if (shipmentId == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'shipmentId' when calling ShipmentApi->ReprintShipment");
+            }
 
             var localVarPath = "/v1/shipments/{shipmentId}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -889,7 +938,10 @@ namespace shippingapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (shipmentId != null) localVarPathParams.Add("shipmentId", this.Configuration.ApiClient.ParameterToString(shipmentId)); // path parameter
+            if (shipmentId != null)
+            {
+                localVarPathParams.Add("shipmentId", this.Configuration.ApiClient.ParameterToString(shipmentId)); // path parameter
+            }
             if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
             if (carrier != null) localVarHeaderParams.Add("carrier", this.Configuration.ApiClient.ParameterToString(carrier)); // header parameter
 
@@ -929,6 +981,8 @@ namespace shippingapi.Api
         public Shipment RetryShipment(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             ApiResponse<Shipment> localVarResponse = RetryShipmentWithHttpInfo(originalTransactionId, xPBUnifiedErrorStructure, carrier);
+            var localVarResponseJsonstr = JsonConvert.SerializeObject(localVarResponse.Data);
+            Debug.Print("[Info] Response of Retry shipment :" + localVarResponseJsonstr);
             return localVarResponse.Data;
         }
 
@@ -944,7 +998,9 @@ namespace shippingapi.Api
         {
             // verify the required parameter 'originalTransactionId' is set
             if (originalTransactionId == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'originalTransactionId' when calling ShipmentApi->RetryShipment");
+            }
 
             var localVarPath = "/v1/shipments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1007,6 +1063,7 @@ namespace shippingapi.Api
         public async System.Threading.Tasks.Task<Shipment> RetryShipmentAsync(string originalTransactionId, bool? xPBUnifiedErrorStructure = default(bool?), Carrier? carrier = default(Carrier?))
         {
             ApiResponse<Shipment> localVarResponse = await RetryShipmentAsyncWithHttpInfo(originalTransactionId, xPBUnifiedErrorStructure, carrier);
+            Debug.Print("[Info] value of ApiResponse<Shipment> localVarResponse in method RetryShipmentAsync :" + localVarResponse.Data);
             return localVarResponse.Data;
 
         }
@@ -1023,7 +1080,9 @@ namespace shippingapi.Api
         {
             // verify the required parameter 'originalTransactionId' is set
             if (originalTransactionId == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'originalTransactionId' when calling ShipmentApi->RetryShipment");
+            }
 
             var localVarPath = "/v1/shipments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1046,9 +1105,17 @@ namespace shippingapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (originalTransactionId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "originalTransactionId", originalTransactionId)); // query parameter
+            if (originalTransactionId != null)
+            {
+                Debug.Print("[Info] value of originalTransactionId in method RetryShipmentAsyncWithHttpInfo :" + originalTransactionId);
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "originalTransactionId", originalTransactionId)); // query parameter
+            }
             if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
-            if (carrier != null) localVarHeaderParams.Add("carrier", this.Configuration.ApiClient.ParameterToString(carrier)); // header parameter
+            if (carrier != null)
+            {
+                Debug.Print("[Info] value of carrier in method RetryShipmentAsyncWithHttpInfo :" + carrier);
+                localVarHeaderParams.Add("carrier", this.Configuration.ApiClient.ParameterToString(carrier)); // header parameter
+            }
 
             // authentication (oAuth2ClientCredentials) required
             // oauth required
