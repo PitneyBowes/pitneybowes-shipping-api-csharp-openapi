@@ -42,6 +42,12 @@ Contact: support@pb.com
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JsonSubTypes, Version=2.0.1.0, Culture=neutral, PublicKeyToken=ee75fc290dbc1176, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\JsonSubTypes.2.0.1\lib\net46\JsonSubTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -55,18 +61,6 @@ Contact: support@pb.com
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonSubTypes">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\JsonSubTypes.1.6.0\lib\net45\JsonSubTypes.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\JsonSubTypes.1.6.0\lib\net45\JsonSubTypes.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\JsonSubTypes.1.6.0\lib\net45\JsonSubTypes.dll</HintPath>
-      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\JsonSubTypes.1.6.0\lib\net45\JsonSubTypes.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AddressValidationApi.cs" />

@@ -118,9 +118,9 @@ namespace shippingapi.Model
         Liveanimal = 14,
 
         /// <summary>
-        /// Enum Liveanimalpoultry for value: liveanimal - poultry
+        /// Enum Liveanimalpoultry for value: liveanimal-poultry
         /// </summary>
-        [EnumMember(Value = "liveanimal - poultry")]
+        [EnumMember(Value = "liveanimal-poultry")]
         Liveanimalpoultry = 15,
 
         /// <summary>
@@ -174,213 +174,218 @@ namespace shippingapi.Model
         /// <summary>
         /// Enum SH for value: SH
         /// </summary>
-        [EnumMember(Value = "SH")]
-        SH = 24,
+        //[EnumMember(Value = "SH")] (Deprecated by USPS)
+        //SH = 24,
 
         /// <summary>
-        /// Enum SIG for value: SIG
+        /// Enum SIG for value: Sig
         /// </summary>
-        [EnumMember(Value = "SIG")]
-        SIG = 25,
+        [EnumMember(Value = "Sig")]
+        SIG = 24,
 
         /// <summary>
         /// Enum SigRD for value: SigRD
         /// </summary>
         [EnumMember(Value = "SigRD")]
-        SigRD = 26,
+        SigRD = 25,
 
         /// <summary>
         /// Enum Sunday for value: sunday
         /// </summary>
         [EnumMember(Value = "sunday")]
-        Sunday = 27,
+        Sunday = 26,
 
         /// <summary>
-        /// Enum Sundayholiday for value: sunday - holiday
+        /// Enum Sundayholiday for value: sunday-holiday
         /// </summary>
-        [EnumMember(Value = "sunday - holiday")]
-        Sundayholiday = 28,
+        [EnumMember(Value = "sunday-holiday")]
+        Sundayholiday = 27,
 
         /// <summary>
         /// Enum NOTIFICATIONS for value: NOTIFICATIONS
         /// </summary>
         [EnumMember(Value = "NOTIFICATIONS")]
-        NOTIFICATIONS = 29,
+        NOTIFICATIONS = 28,
 
         /// <summary>
         /// Enum PBXPS for value: PBXPS
         /// </summary>
         [EnumMember(Value = "PBXPS")]
-        PBXPS = 30,
+        PBXPS = 29,
 
         /// <summary>
         /// Enum PBXUS for value: PBXUS
         /// </summary>
         [EnumMember(Value = "PBXUS")]
-        PBXUS = 31,
+        PBXUS = 30,
 
         /// <summary>
         /// Enum PBXPE for value: PBXPE
         /// </summary>
         [EnumMember(Value = "PBXPE")]
-        PBXPE = 32,
+        PBXPE = 31,
 
         /// <summary>
         /// Enum ANCILLARYENDORSEMENT for value: ANCILLARY_ENDORSEMENT
         /// </summary>
         [EnumMember(Value = "ANCILLARY_ENDORSEMENT")]
-        ANCILLARYENDORSEMENT = 33,
+        ANCILLARYENDORSEMENT = 32,
 
         /// <summary>
         /// Enum ADDHDL for value: ADD_HDL
         /// </summary>
         [EnumMember(Value = "ADD_HDL")]
-        ADDHDL = 34,
+        ADDHDL = 33,
 
         /// <summary>
         /// Enum ALCOHOL for value: ALCOHOL
         /// </summary>
         [EnumMember(Value = "ALCOHOL")]
-        ALCOHOL = 35,
+        ALCOHOL = 34,
 
         /// <summary>
         /// Enum CARRIERLEAVEIFNORES for value: CARRIER_LEAVE_IF_NO_RES
         /// </summary>
         [EnumMember(Value = "CARRIER_LEAVE_IF_NO_RES")]
-        CARRIERLEAVEIFNORES = 36,
+        CARRIERLEAVEIFNORES = 35,
 
         /// <summary>
         /// Enum DIRECTSIG for value: DIRECT_SIG
         /// </summary>
         [EnumMember(Value = "DIRECT_SIG")]
-        DIRECTSIG = 37,
+        DIRECTSIG = 36,
 
         /// <summary>
         /// Enum APPOINTMENT for value: APPOINTMENT
         /// </summary>
         [EnumMember(Value = "APPOINTMENT")]
-        APPOINTMENT = 38,
+        APPOINTMENT = 37,
 
         /// <summary>
         /// Enum DATE for value: DATE
         /// </summary>
         [EnumMember(Value = "DATE")]
-        DATE = 39,
+        DATE = 38,
 
         /// <summary>
         /// Enum EVENING for value: EVENING
         /// </summary>
         [EnumMember(Value = "EVENING")]
-        EVENING = 40,
+        EVENING = 39,
 
         /// <summary>
         /// Enum GCOD for value: GCOD
         /// </summary>
         [EnumMember(Value = "GCOD")]
-        GCOD = 41,
+        GCOD = 40,
 
         /// <summary>
         /// Enum PAL for value: PAL
         /// </summary>
         [EnumMember(Value = "PAL")]
-        PAL = 42,
+        PAL = 41,
 
         /// <summary>
         /// Enum PALPLUS for value: PAL_PLUS
         /// </summary>
         [EnumMember(Value = "PAL_PLUS")]
-        PALPLUS = 43,
+        PALPLUS = 42,
 
         /// <summary>
         /// Enum SATDELIVERY for value: SAT_DELIVERY
         /// </summary>
         [EnumMember(Value = "SAT_DELIVERY")]
-        SATDELIVERY = 44,
+        SATDELIVERY = 43,
 
         /// <summary>
         /// Enum SATPICKUP for value: SAT_PICKUP
         /// </summary>
         [EnumMember(Value = "SAT_PICKUP")]
-        SATPICKUP = 45,
+        SATPICKUP = 44,
 
         /// <summary>
         /// Enum HOLD for value: HOLD
         /// </summary>
         [EnumMember(Value = "HOLD")]
-        HOLD = 46,
+        HOLD = 45,
 
         /// <summary>
         /// Enum NOSIG for value: NO_SIG
         /// </summary>
         [EnumMember(Value = "NO_SIG")]
-        NOSIG = 47,
+        NOSIG = 46,
 
         /// <summary>
         /// Enum PRL for value: PRL
         /// </summary>
         [EnumMember(Value = "PRL")]
-        PRL = 48,
+        PRL = 47,
 
         /// <summary>
         /// Enum ADULTSIG for value: ADULT_SIG
         /// </summary>
         [EnumMember(Value = "ADULT_SIG")]
-        ADULTSIG = 49,
+        ADULTSIG = 48,
 
         /// <summary>
         /// Enum CARBON for value: CARBON
         /// </summary>
         [EnumMember(Value = "CARBON")]
-        CARBON = 50,
+        CARBON = 49,
 
         /// <summary>
         /// Enum CODCASHIER for value: COD_CASHIER
         /// </summary>
         [EnumMember(Value = "COD_CASHIER")]
-        CODCASHIER = 51,
+        CODCASHIER = 50,
 
         /// <summary>
         /// Enum CODCHECK for value: COD_CHECK
         /// </summary>
         [EnumMember(Value = "COD_CHECK")]
-        CODCHECK = 52,
+        CODCHECK = 51,
 
         /// <summary>
         /// Enum DELCON for value: DEL_CON
         /// </summary>
         [EnumMember(Value = "DEL_CON")]
-        DELCON = 53,
+        DELCON = 52,
 
         /// <summary>
         /// Enum DIRECT for value: DIRECT
         /// </summary>
         [EnumMember(Value = "DIRECT")]
-        DIRECT = 54,
+        DIRECT = 53,
 
         /// <summary>
         /// Enum DRYICE for value: DRY_ICE
         /// </summary>
         [EnumMember(Value = "DRY_ICE")]
-        DRYICE = 55,
+        DRYICE = 54,
 
         /// <summary>
         /// Enum INS for value: INS
         /// </summary>
-        [EnumMember(Value = "INS")]
-        INS = 56,
+        [EnumMember(Value = "Ins")]
+        Ins = 55,
 
         /// <summary>
         /// Enum SHPRELEASE for value: SHP_RELEASE
         /// </summary>
         [EnumMember(Value = "SHP_RELEASE")]
-        SHPRELEASE = 57,
+        SHPRELEASE = 56,
 
         /// <summary>
         /// Enum VERBAL for value: VERBAL
         /// </summary>
         [EnumMember(Value = "VERBAL")]
-        VERBAL = 58
+        VERBAL = 57,
 
+        /// <summary>
+        /// Enum Hazmatelectronics for value: hazmat-electronics 
+        /// </summary>
+        [EnumMember(Value = "hazmat-electronics")]
+        Hazmatelectronics = 58
     }
 
 }
