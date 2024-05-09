@@ -283,25 +283,25 @@ namespace shippingapi.Model
         /// Enum PBDS for value: PBDS
         /// </summary>
         [EnumMember(Value = "PBDS")]
-        PBDS = 42
+        PBDS = 42,
 
         /// <summary>
         /// Enum PRCLSEL for value: PRCLSEL
         /// </summary>
-        // [EnumMember(Value = "PRCLSEL")]
-        // PRCLSEL = 43,
+        [EnumMember(Value = "PRCLSEL")]
+        PRCLSEL = 43,
 
         /// <summary>
         /// Enum STDPOST for value: STDPOST
         /// </summary>
-        // [EnumMember(Value = "STDPOST")]
-        // STDPOST = 44,
+        [EnumMember(Value = "STDPOST")]
+        STDPOST = 44,
 
         /// <summary>
         /// Enum FCM for value: FCM
         /// </summary>
-        // [EnumMember(Value = "FCM")]
-        // FCM = 45
+        [EnumMember(Value = "FCM")]
+        FCM = 45
     }
 
 }

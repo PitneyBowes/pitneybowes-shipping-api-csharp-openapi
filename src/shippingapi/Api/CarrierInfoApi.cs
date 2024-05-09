@@ -88,7 +88,7 @@ namespace shippingapi.Api
         /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
         /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>CarrierRule</returns>
-        CarrierRule GetCarrierServiceRules (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?));
+        List<CarrierRule> GetCarrierServiceRules (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode);
 
         /// <summary>
         /// Retrieves the rules governing the carrier&#39;s services.
@@ -106,7 +106,7 @@ namespace shippingapi.Api
         /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
         /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>ApiResponse of CarrierRule</returns>
-        ApiResponse<CarrierRule> GetCarrierServiceRulesWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?));
+        ApiResponse<List<CarrierRule>> GetCarrierServiceRulesWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode);
         /// <summary>
         /// This operation returns a list of supported destination countries to which the carrier offers international shipping services.
         /// </summary>
@@ -198,7 +198,7 @@ namespace shippingapi.Api
         /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
         /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>Task of CarrierRule</returns>
-        System.Threading.Tasks.Task<CarrierRule> GetCarrierServiceRulesAsync (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?));
+        System.Threading.Tasks.Task<CarrierRule> GetCarrierServiceRulesAsync (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode);
 
         /// <summary>
         /// Retrieves the rules governing the carrier&#39;s services.
@@ -216,7 +216,7 @@ namespace shippingapi.Api
         /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
         /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>Task of ApiResponse (CarrierRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CarrierRule>> GetCarrierServiceRulesAsyncWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?));
+        System.Threading.Tasks.Task<ApiResponse<CarrierRule>> GetCarrierServiceRulesAsyncWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode);
         /// <summary>
         /// This operation returns a list of supported destination countries to which the carrier offers international shipping services.
         /// </summary>
@@ -401,7 +401,7 @@ namespace shippingapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
+            if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter 
             if (carrierFacilityRequest != null && carrierFacilityRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(carrierFacilityRequest); // http body (model) parameter
@@ -690,15 +690,10 @@ namespace shippingapi.Api
         /// <param name="carrier">The carrier name. **Currently this must be set to: USPS** </param>
         /// <param name="originCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country where the shipment originates.</param>
         /// <param name="destinationCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country of the shipment&#39;s destination address.</param>
-        /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
-        /// <param name="rateTypeId">The type of rate requested, such as COMMERCIAL_BASE. If a rate type is not specified, all eligible rate types are returned. (optional)</param>
-        /// <param name="futureShipmentDate">If the shipment is for a future date, and if a rate change is expected before the shipment date, use this field to ensure you get the correct rates and correct rate rules. Note that a rate change can affect the structure of the rate rules as well as the actual rates.Specify this value in UTC/GMT, not in local time. Formats allowed are   * **YYYY-MM-DD**   * **YYYY-MM-DD HH:mm:ss** * **YYYY-MM-DD HH:mm:ss.SSS** (optional)</param>
-        /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
-        /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>CarrierRule</returns>
-        public CarrierRule GetCarrierServiceRules (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?))
+        public List<CarrierRule> GetCarrierServiceRules (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode)
         {
-             ApiResponse<CarrierRule> localVarResponse = GetCarrierServiceRulesWithHttpInfo(carrier, originCountryCode, destinationCountryCode, xPBUnifiedErrorStructure, rateTypeId, futureShipmentDate, returnShipment, compactResponse);
+             ApiResponse<List<CarrierRule>> localVarResponse = GetCarrierServiceRulesWithHttpInfo(carrier, originCountryCode, destinationCountryCode);
              return localVarResponse.Data;
         }
 
@@ -709,13 +704,8 @@ namespace shippingapi.Api
         /// <param name="carrier">The carrier name. **Currently this must be set to: USPS** </param>
         /// <param name="originCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country where the shipment originates.</param>
         /// <param name="destinationCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country of the shipment&#39;s destination address.</param>
-        /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
-        /// <param name="rateTypeId">The type of rate requested, such as COMMERCIAL_BASE. If a rate type is not specified, all eligible rate types are returned. (optional)</param>
-        /// <param name="futureShipmentDate">If the shipment is for a future date, and if a rate change is expected before the shipment date, use this field to ensure you get the correct rates and correct rate rules. Note that a rate change can affect the structure of the rate rules as well as the actual rates.Specify this value in UTC/GMT, not in local time. Formats allowed are   * **YYYY-MM-DD**   * **YYYY-MM-DD HH:mm:ss** * **YYYY-MM-DD HH:mm:ss.SSS** (optional)</param>
-        /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
-        /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>ApiResponse of CarrierRule</returns>
-        public ApiResponse<CarrierRule> GetCarrierServiceRulesWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?))
+        public ApiResponse<List<CarrierRule>> GetCarrierServiceRulesWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode)
         {
             // verify the required parameter 'carrier' is set
             if (carrier == null)
@@ -751,11 +741,6 @@ namespace shippingapi.Api
             if (carrier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "carrier", carrier)); // query parameter
             if (originCountryCode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "originCountryCode", originCountryCode)); // query parameter
             if (destinationCountryCode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "destinationCountryCode", destinationCountryCode)); // query parameter
-            if (rateTypeId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "rateTypeId", rateTypeId)); // query parameter
-            if (futureShipmentDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "futureShipmentDate", futureShipmentDate)); // query parameter
-            if (returnShipment != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "returnShipment", returnShipment)); // query parameter
-            if (compactResponse != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "compactResponse", compactResponse)); // query parameter
-            if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
 
             // authentication (oAuth2ClientCredentials) required
             // oauth required
@@ -777,9 +762,9 @@ namespace shippingapi.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CarrierRule>(localVarStatusCode,
+            return new ApiResponse<List<CarrierRule>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CarrierRule) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CarrierRule)));
+                (List<CarrierRule>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CarrierRule>)));
         }
 
         /// <summary>
@@ -789,15 +774,10 @@ namespace shippingapi.Api
         /// <param name="carrier">The carrier name. **Currently this must be set to: USPS** </param>
         /// <param name="originCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country where the shipment originates.</param>
         /// <param name="destinationCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country of the shipment&#39;s destination address.</param>
-        /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
-        /// <param name="rateTypeId">The type of rate requested, such as COMMERCIAL_BASE. If a rate type is not specified, all eligible rate types are returned. (optional)</param>
-        /// <param name="futureShipmentDate">If the shipment is for a future date, and if a rate change is expected before the shipment date, use this field to ensure you get the correct rates and correct rate rules. Note that a rate change can affect the structure of the rate rules as well as the actual rates.Specify this value in UTC/GMT, not in local time. Formats allowed are   * **YYYY-MM-DD**   * **YYYY-MM-DD HH:mm:ss** * **YYYY-MM-DD HH:mm:ss.SSS** (optional)</param>
-        /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
-        /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>Task of CarrierRule</returns>
-        public async System.Threading.Tasks.Task<CarrierRule> GetCarrierServiceRulesAsync (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?))
+        public async System.Threading.Tasks.Task<CarrierRule> GetCarrierServiceRulesAsync (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode)
         {
-             ApiResponse<CarrierRule> localVarResponse = await GetCarrierServiceRulesAsyncWithHttpInfo(carrier, originCountryCode, destinationCountryCode, xPBUnifiedErrorStructure, rateTypeId, futureShipmentDate, returnShipment, compactResponse);
+             ApiResponse<CarrierRule> localVarResponse = await GetCarrierServiceRulesAsyncWithHttpInfo(carrier, originCountryCode, destinationCountryCode);
              return localVarResponse.Data;
 
         }
@@ -809,13 +789,8 @@ namespace shippingapi.Api
         /// <param name="carrier">The carrier name. **Currently this must be set to: USPS** </param>
         /// <param name="originCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country where the shipment originates.</param>
         /// <param name="destinationCountryCode">The [two-character ISO country code](https://www.iso.org/obp/ui/#search) for the country of the shipment&#39;s destination address.</param>
-        /// <param name="xPBUnifiedErrorStructure">Set this to true to use the standard [error object](https://shipping.pitneybowes.com/reference/error-object.html#standard-error-object) if an error occurs. (optional, default to true)</param>
-        /// <param name="rateTypeId">The type of rate requested, such as COMMERCIAL_BASE. If a rate type is not specified, all eligible rate types are returned. (optional)</param>
-        /// <param name="futureShipmentDate">If the shipment is for a future date, and if a rate change is expected before the shipment date, use this field to ensure you get the correct rates and correct rate rules. Note that a rate change can affect the structure of the rate rules as well as the actual rates.Specify this value in UTC/GMT, not in local time. Formats allowed are   * **YYYY-MM-DD**   * **YYYY-MM-DD HH:mm:ss** * **YYYY-MM-DD HH:mm:ss.SSS** (optional)</param>
-        /// <param name="returnShipment">If set to true, provides only services applicable for return shipment. (optional)</param>
-        /// <param name="compactResponse">If set to true, returns only summary, without special service details. (optional)</param>
         /// <returns>Task of ApiResponse (CarrierRule)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CarrierRule>> GetCarrierServiceRulesAsyncWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode, bool? xPBUnifiedErrorStructure = default(bool?), string rateTypeId = default(string), string futureShipmentDate = default(string), DateTime? returnShipment = default(DateTime?), bool? compactResponse = default(bool?))
+        public async System.Threading.Tasks.Task<ApiResponse<CarrierRule>> GetCarrierServiceRulesAsyncWithHttpInfo (Carrier carrier, ISOCountryCode originCountryCode, ISOCountryCode destinationCountryCode)
         {
             // verify the required parameter 'carrier' is set
             if (carrier == null)
@@ -851,11 +826,8 @@ namespace shippingapi.Api
             if (carrier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "carrier", carrier)); // query parameter
             if (originCountryCode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "originCountryCode", originCountryCode)); // query parameter
             if (destinationCountryCode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "destinationCountryCode", destinationCountryCode)); // query parameter
-            if (rateTypeId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "rateTypeId", rateTypeId)); // query parameter
-            if (futureShipmentDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "futureShipmentDate", futureShipmentDate)); // query parameter
-            if (returnShipment != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "returnShipment", returnShipment)); // query parameter
-            if (compactResponse != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "compactResponse", compactResponse)); // query parameter
-            if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
+
+            //if (xPBUnifiedErrorStructure != null) localVarHeaderParams.Add("X-PB-UnifiedErrorStructure", this.Configuration.ApiClient.ParameterToString(xPBUnifiedErrorStructure)); // header parameter
 
             // authentication (oAuth2ClientCredentials) required
             // oauth required
@@ -879,7 +851,7 @@ namespace shippingapi.Api
 
             return new ApiResponse<CarrierRule>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CarrierRule) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CarrierRule)));
+                (CarrierRule) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CarrierRule>)));
         }
 
         /// <summary>

@@ -247,8 +247,25 @@ namespace shippingapi.Model
         /// Enum PKG for value: PKG
         /// </summary>
         [EnumMember(Value = "PKG")]
-        PKG = 36
+        PKG = 36,
 
+        /// <summary>
+        /// Enum LGENV_IMB for value: LGENV-IMB
+        /// </summary>
+        [EnumMember(Value = "LGENV-IMB")]
+        LGENV_IMB = 37,
+
+        /// <summary>
+        /// Enum LTR_IMB for value: LTR-IMB
+        /// </summary>
+        [EnumMember(Value = "LTR-IMB")]
+        LTR_IMB = 38,
+
+        /// <summary>
+        /// Enum PC for value: PC
+        /// </summary>
+        [EnumMember(Value = "PC")]
+        PC = 39
     }
 
 }
