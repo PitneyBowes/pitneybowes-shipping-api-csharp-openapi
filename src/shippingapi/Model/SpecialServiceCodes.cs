@@ -385,7 +385,31 @@ namespace shippingapi.Model
         /// Enum Hazmatelectronics for value: hazmat-electronics 
         /// </summary>
         [EnumMember(Value = "hazmat-electronics")]
-        Hazmatelectronics = 58
+        Hazmatelectronics = 58,
+
+        /// <summary>
+        /// Enum NONSTDTUBEROLL for value: NONSTD_TUBE_ROLL
+        /// </summary>
+        [EnumMember(Value = "NONSTD_TUBE_ROLL")]
+        NONSTDTUBEROLL = 59,
+ 
+        /// <summary>
+        /// Enum NONSTDCANWOODMETALBX for value: NONSTD_CAN_WOOD_METAL_BX
+        /// </summary>
+        [EnumMember(Value = "NONSTD_CAN_WOOD_METAL_BX")]
+        NONSTDCANWOODMETALBX = 60,
+ 
+        /// <summary>
+        /// Enum NONSTDLIQUID for value: NONSTD_LIQUID
+        /// </summary>
+        [EnumMember(Value = "NONSTD_LIQUID")]
+        NONSTDLIQUID = 61,
+ 
+        /// <summary>
+        /// Enum NONSTDPKGPREP for value: NONSTD_PKG_PREP
+        /// </summary>
+        [EnumMember(Value = "NONSTD_PKG_PREP")]
+        NONSTDPKGPREP = 62
     }
 
 }
